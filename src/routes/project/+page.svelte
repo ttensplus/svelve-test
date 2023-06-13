@@ -1,23 +1,24 @@
 <svelte:head>
-    <title>My Blog</title>
+    <title>Portfolio</title>
 </svelte:head>
+
 <div class="container">
-    <h1>My posts</h1>
-    <div class="blogposts">
+    <h1>My projects</h1>
+    <div class="apps">
         {#each routes as page}
-            <div class="post">
+            <div class="app">
                 <h2>{page.title}</h2>
                 <p>{page.body}</p>
                 <p class="readmore">
-                    <a class="link" href={`/blog/posts/${page.id}`}>Read more...</a>
+                    <a class="link" href={`/project/apps/${page.id}`}>Read more...</a>
                 </p>
-            </div>            
+            </div>   
         {/each}
     </div>
 </div>
 
 <script>
-    import {routes} from './routes'
+    import { routes } from "./routes";
 </script>
 
 <style>
@@ -26,12 +27,12 @@
         max-width: 800px;
         padding: 0 20px;
     }
-    .blogposts {
+    .apps {
         display: grid;
         grid-template-columns: 1fr 1fr;
         grid-gap: 20px;
     }
-    .post {
+    .app {
         border: 1px solid #ddd;
         padding: 10px;
         box-shadow: 0 0 10px #eee;
