@@ -2,7 +2,7 @@
     let name = '';
     let sum = '';
     let list = [];
-    function add() {
+    function addExpense() {
         if (name !== '' && sum !== '') {
             list = [
                 ...list,
@@ -17,7 +17,7 @@
         }   
     }
 
-    function remove(index) {
+    function deleteExpense(index) {
         list.splice(index, 1);
         list = list;
     }
@@ -26,14 +26,14 @@
 
 <h1>Учёт расходов</h1>
 <main>
-    <form on:submit|preventDefault={add}>
+    <form on:submit|preventDefault={addExpense}>
         <div>
             <p>Название:</p>
             <input bind:value={name}> 
             <p>Сумма:</p>
             <input bind:value={sum}>
         </div>           
-        <button onclick={add}><span>Добавить</span></button>    
+        <button onclick={addExpense}><span>Добавить</span></button>    
     </form>
     <div class="fill_field">
         
@@ -58,7 +58,7 @@
                     <span>{item.Sum}</span>
                 </div>
                 <div class="column" style="width: 32%;">
-                    <button on:click={() => remove(index)}>Удалить</button>
+                    <button on:click={() => deleteExpense(index)}>Удалить</button>
                 </div>           
             </div>
         {/each}
@@ -80,10 +80,8 @@
         width: 100%;
         max-width: 500px;
         display: flex;
-        /* align-items: center; */
         margin-bottom: 1rem;
         flex-direction: row;
-        /* background-color: aqua; */
         height: 10%;
         align-items: end;
     }
@@ -104,31 +102,20 @@
         max-width: 500px;
     }
     .row {
-        /* border: 1px solid black; */
         display: flex;
-        /* padding: 20px; */
-        /* border-radius: 20px; */
-        /* box-shadow: 0 0 15px rgb(0 0 0 /20%); */
-        /* background-color: hsla(0, 0%, 100%, 0.2); */
-        /* margin-top: 1rem; */
         font-size: 1.2rem;
-        /* justify-content: space-between; */
     }
     .column {
-        /* vertical-align: middle; */
         border: 1px solid rgb(190, 190, 190);
         width: 34%;
         margin: 0 0 0 0;
         padding: 0 0 0 0;
         height: auto;
         padding: 10px 10px;
-        /* padding-top: 13px; */
-        /* padding: ; */
     }
     h1 {
         text-align: center;
         font-size: 1.5rem;
-        /* margin: 2em  0; */
     }
     button {
         width: 90px;
